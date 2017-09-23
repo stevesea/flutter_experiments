@@ -11,54 +11,14 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
+        accentColor: Colors.redAccent,
       ),
-      home: new TutorialHome(),
+      home: new MyHomePage(title: "MyApp Home Page!"),
     );
   }
 }
 
-
-class TutorialHome extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // Scaffold is a layout for the major Material Design widgets.
-    return new Scaffold(
-      appBar: new AppBar(
-        leading: new IconButton(
-          icon: new Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
-        ),
-        title: new Text('Example title'),
-        actions: <Widget>[
-          new IconButton(
-            icon: new Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: null,
-          ),
-        ],
-      ),
-      // body is the majority of the screen.
-      body: new Center(
-        child: new Text('Hello, world!'),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        tooltip: 'Add', // used by assistive technologies
-        child: new Icon(Icons.add),
-        onPressed: null,
-      ),
-    );
-  }
-}
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -101,9 +61,21 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return new Scaffold(
       appBar: new AppBar(
+        leading: new IconButton(
+          icon: new Icon(Icons.menu),
+          tooltip: 'Navigation menu',
+          onPressed: null,
+        ),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: new Text(widget.title),
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: null,
+          ),
+        ],
       ),
       body: new Center(
         // Center is a layout widget. It takes a single child and positions it
