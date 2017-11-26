@@ -38,4 +38,19 @@ class DiceParser {
     }
     return evaluator.parse(diceStr).value;
   }
+
+  List<int> rollN(String diceStr, int num) {
+
+    var result = parser.parse(diceStr);
+    if (result.isFailure) {
+      throw new FormatException("Unable to parse '${result.buffer}' (${result.toPositionString()})", result.position);
+    }
+
+    var ret = <int>[];
+    for (int i=0; i < num; i++) {
+      ret.add(evaluator.parse(diceStr).value);
+    }
+
+    return ret;
+  }
 }
