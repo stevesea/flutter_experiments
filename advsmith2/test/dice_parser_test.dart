@@ -43,6 +43,11 @@ void main() {
       expect(diceParser.roll(input), equals(17));
     });
 
+    test("order of operations, with dice", () {
+      var input = "5 + 6 * 2d6";
+      expect(diceParser.roll(input), equals(29));
+    });
+
     test("simple roll", () {
       var input = "1d6";
       expect(diceParser.roll(input), equals(2));
