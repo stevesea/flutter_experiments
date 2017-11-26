@@ -6,6 +6,8 @@ import 'dart:math';
 import "../lib/dice_parser.dart";
 import "../lib/dice_roller.dart";
 
+import 'package:petitparser/petitparser.dart';
+
 
 class MockRandom extends Mock implements Random {}
 
@@ -38,6 +40,20 @@ void main() {
 
   test("dice parser - simple roll", () {
     var input = "1d6";
-    expect(p.parse(input).value, equals(2));
+    var result = p.parse(input);
+    expect(result.value, equals(2));
+  });
+
+  test ("asdf", () {
+    var number = digit().plus().flatten().trim().map(int.parse);
+
+    var dice = number.seq(char('d').trim()).seq(number).flatten().trim().map((values) {
+      return roller.roll(int.parse(values[0]), int.parse(values[2]));
+    });
+
+    var numOrDice = number | dice;
+    var parser = numOrDice.end();
+    expect(parser.parse("6").value, 6);
+    expect(parser.parse("1d6").value, 2);
   });
 }

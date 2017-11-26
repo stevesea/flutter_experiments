@@ -1,6 +1,40 @@
 import 'package:petitparser/petitparser.dart';
 import 'dice_roller.dart';
 
+class DiceExpressionGrammar extends GrammarParser {
+  DiceExpressionGrammar() : super(const DiceExpressionGrammarDefinition());
+}
+
+class DiceExpressionParser extends GrammarParser {
+  DiceExpressionParser() : super(const DiceExpressionParserDefinition());
+}
+
+class DiceExpressionGrammarDefinition extends GrammarDefinition {
+  const DiceExpressionGrammarDefinition();
+
+  start() => ref(terms).end();
+  terms() => ref(addition) | ref(factors);
+
+  addition() => ref(factors).separatedBy(token(char('+') | char('-')));
+  factors() => ref(multiplication) | ref(power);
+
+  multiplication() => ref(power).separatedBy(token(char('*') | char('/')));
+  power() => ref(primary).separatedBy(char('^').trim());
+
+  primary() => ref(number) | ref(parentheses);
+  number() => token(digit().plus());
+
+  parentheses() => token('(') & ref(terms) & token(')');
+  token(value) => value is String ? char(value).trim() : value.flatten().trim();
+}
+
+/// JSON parser definition.
+class DiceExpressionParserDefinition extends DiceExpressionGrammarDefinition {
+  const DiceExpressionParserDefinition();
+
+  number() => super.number().map(int.parse);
+}
+
 class DiceParser {
   DiceRoller _roller;
   Parser parser;
@@ -11,30 +45,6 @@ class DiceParser {
     else
       _roller = roller;
 
-    var number = digit().plus().flatten().trim().map(int.parse);
-
-    var dice = number.seq(char('d').trim()).seq(number).map((values) {
-      return _roller.roll(values[0], values[2]);
-    });
-
-    var numOrDice = number | dice;
-
-    var term = undefined();
-    var prod = undefined();
-    var prim = undefined();
-
-    term.set(prod.seq(char('+').trim()).seq(term).map((values) {
-      return values[0] + values[2];
-    }).or(prod));
-
-    prod.set(prim.seq(char('*').trim()).seq(prod).map((values) {
-      return values[0] * values[2];
-    }).or(prim));
-
-    prim.set(char('(').trim().seq(term).seq(char(')'.trim())).map((values) {
-      return values[1];
-    }).or(numOrDice));
-
-    parser = term.end();
+    parser = new DiceExpressionParser();
   }
 }
