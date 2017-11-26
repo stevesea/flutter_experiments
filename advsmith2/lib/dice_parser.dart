@@ -14,8 +14,8 @@ class DiceParser {
       ..primitive(char('(').trim().seq(root).seq(char(')').trim()).pick(1))
       ..primitive(digit().plus().flatten().trim().map((a) => int.parse(a)));
     builder.group()
-      ..postfix(string('dF'), action((a, op) => roller.rollFudge(a)))
-      ..left(char('d'), action((a, op, b) => roller.roll(a, b)));
+      ..postfix(string('dF').trim(), action((a, op) => roller.rollFudge(a)))
+      ..left(char('d').trim(), action((a, op, b) => roller.roll(a, b)));
     builder.group()
       ..left(char('*').trim(), action((a, op, b) => a * b));
     builder.group()
