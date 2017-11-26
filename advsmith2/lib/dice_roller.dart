@@ -14,6 +14,6 @@ class DiceRoller {
     for (int i = 0; i < ndice; i++) {
       sum += random.nextInt(nsides) + 1; // nextInt is zero-inclusive, add 1 so it's like dice.
     }
-    return random.nextInt(nsides) + 1;
+    return sum;
   }
 }

@@ -1,8 +1,6 @@
 import 'package:petitparser/petitparser.dart';
 import 'dice_roller.dart';
 
-import 'dart:math' as math;
-
 class DiceParser {
   DiceRoller _roller;
   Parser parser;
@@ -14,18 +12,11 @@ class DiceParser {
     var builder = new ExpressionBuilder();
     builder.group()
       ..primitive(char('(').trim().seq(root).seq(char(')').trim()).pick(1))
-      ..primitive(digit().plus().seq(char('.').seq(digit().plus()).optional())
-          .flatten().trim().map((a) => double.parse(a)));
+      ..primitive(digit().plus().flatten().trim().map((a) => int.parse(a)));
     builder.group()
-      ..prefix(char('-').trim(), action((op, a) => -a));
+      ..left(char('d').trim(), action((a, op, b) => _roller.roll(a, b)));
     builder.group()
-      ..postfix(string('++').trim(), action((a, op) => ++a))
-      ..postfix(string('--').trim(), action((a, op) => --a));
-    builder.group()
-      ..right(char('^').trim(), action((a, op, b) => math.pow(a, b)));
-    builder.group()
-      ..left(char('*').trim(), action((a, op, b) => a * b))
-      ..left(char('/').trim(), action((a, op, b) => a / b));
+      ..left(char('*').trim(), action((a, op, b) => a * b));
     builder.group()
       ..left(char('+').trim(), action((a, op, b) => a + b))
       ..left(char('-').trim(), action((a, op, b) => a - b));
@@ -41,5 +32,9 @@ class DiceParser {
 
     parser = build(attachAction: false);
     evaluator = build(attachAction: true);
+  }
+
+  int roll(String diceStr) {
+    return evaluator.parse(diceStr).value;
   }
 }
