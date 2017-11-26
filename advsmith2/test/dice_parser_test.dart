@@ -58,6 +58,10 @@ void main() {
       expect(diceParser.roll(input), equals(20));
     });
 
+    test("fudge", () {
+      var input = "4dF";
+      expect(diceParser.roll(input), equals(-4));
+    });
 
     test("invalid dice str", () {
       var input = "1d5 + x2";
