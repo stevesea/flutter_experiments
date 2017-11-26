@@ -14,7 +14,7 @@ class MockRandom extends Mock implements Random {}
 void main() {
   var mockRandom = new MockRandom();
   var roller = new DiceRoller(mockRandom);
-  var p = new DiceParser(roller).parser;
+  var p = new DiceParser(roller).evaluator;
 
   when(mockRandom.nextInt(argThat(inInclusiveRange(1, 1000)))).thenReturn(1);
 
