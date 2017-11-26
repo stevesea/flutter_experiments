@@ -22,6 +22,7 @@ void main() {
       var input = "1 + 20";
       expect(diceParser.roll(input), equals(21));
     });
+
     test("subtraction", () {
       var input = "1 - 20";
       expect(diceParser.roll(input), equals(-19));
@@ -47,8 +48,13 @@ void main() {
       expect(diceParser.roll(input), equals(2));
     });
 
-    test("dice pool", () {
+    test("ndice in parens", () {
       var input = "(4+6)d10";
+      expect(diceParser.roll(input), equals(20));
+    });
+
+    test("nsides in parens", () {
+      var input = "10d(2*3)";
       expect(diceParser.roll(input), equals(20));
     });
 
