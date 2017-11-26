@@ -3,11 +3,11 @@ import 'dart:math';
 
 
 class DiceRoller {
-  final Random random;
+  Random random;
 
-  DiceRoller.secure() : this(new Random.secure());
-
-  DiceRoller(this.random);
+  DiceRoller([Random r]) {
+    random = r ?? new Random.secure();
+  }
 
   int roll(int ndice, int nsides) {
     var sum = 0;
