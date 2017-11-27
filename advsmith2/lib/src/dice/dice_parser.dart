@@ -1,5 +1,5 @@
 import 'package:petitparser/petitparser.dart';
-import 'dice_roller.dart';
+import 'package:advsmith2/src/dice/dice_roller.dart';
 
 class DiceParser {
   DiceRoller roller;

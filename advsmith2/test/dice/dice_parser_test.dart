@@ -3,8 +3,8 @@ import 'package:mockito/mockito.dart';
 
 import 'dart:math';
 
-import "../lib/dice_parser.dart";
-import "../lib/dice_roller.dart";
+import "package:advsmith2/src/dice/dice_parser.dart";
+import "package:advsmith2/src/dice/dice_roller.dart";
 
 
 class MockRandom extends Mock implements Random {}
@@ -16,8 +16,7 @@ void main() {
 
   when(mockRandom.nextInt(argThat(inInclusiveRange(1, 1000)))).thenReturn(1);
 
-  group("dice parser", () {
-
+  group("arithmetic", () {
     test("addition", () {
       var input = "1 + 20";
       expect(diceParser.roll(input), equals(21));
@@ -42,6 +41,9 @@ void main() {
       var input = "5 + 6 * 2";
       expect(diceParser.roll(input), equals(17));
     });
+  });
+
+  group("dice", () {
 
     test("order of operations, with dice", () {
       var input = "5 + 6 * 2d6";
