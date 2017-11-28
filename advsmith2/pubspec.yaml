@@ -2,8 +2,8 @@ name: advsmith2
 description: A new Flutter project.
 
 dependencies:
-  dart_dice_parser: ^0.0.3
-  quiver: 0.25.0
+  dart_dice_parser: ^0.0.5
+  quiver: ^0.25.0
   petitparser: ^1.6.1
   flutter:
     sdk: flutter
