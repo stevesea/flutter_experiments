@@ -3,6 +3,8 @@ import 'package:quiver/check.dart';
 
 import 'dart:math';
 
+// TODO: look into https://github.com/fluidic/range_map can use instead of own?
+
 //
 class Shuffler {
   Random _random;
