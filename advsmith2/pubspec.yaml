@@ -2,13 +2,14 @@ name: advsmith2
 description: A new Flutter project.
 
 dependencies:
+  dart_dice_parser: ^0.0.1
   quiver: 0.25.0
-  mockito: 2.2.0
   petitparser: 1.6.1
   flutter:
     sdk: flutter
 
 dev_dependencies:
+  mockito: 2.2.0
   flutter_test:
     sdk: flutter
 
