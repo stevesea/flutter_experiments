@@ -1,6 +1,4 @@
-
-import 'package:advsmith2/src/dice/dice_roller.dart';
-import 'package:advsmith2/src/dice/dice_parser.dart';
+import 'package:dart_dice_parser/dart_dice_parser.dart';
 
 class Shuffler {
   DiceParser diceParser;
