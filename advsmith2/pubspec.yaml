@@ -29,6 +29,15 @@ flutter:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
+  assets:
+  - assets/bip39/chinese_simplified.txt
+  - assets/bip39/chinese_traditional.txt
+  - assets/bip39/english.txt
+  - assets/bip39/french.txt
+  - assets/bip39/italian.txt
+  - assets/bip39/japanese.txt
+  - assets/bip39/korean.txt
+  - assets/bip39/spanish.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.
