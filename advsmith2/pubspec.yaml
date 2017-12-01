@@ -2,8 +2,8 @@ name: advsmith2
 description: A new Flutter project.
 
 dependencies:
-  dart_dice_parser: ^0.0.5
-  quiver: ^0.25.0
+  dart_dice_parser: ^0.0.6
+  quiver: ^0.26.0
   petitparser: ^1.6.1
   flutter:
     sdk: flutter
@@ -47,6 +47,7 @@ flutter:
   - assets/eff/eff_short_wordlist_1.txt
   - assets/eff/eff_short_wordlist_2_0.txt
   # TODO: look here for UI example: https://www.rempe.us/diceware/#eff
+  # TODO: https://github.com/xmikos/pwgen-passphrase (more lists!)
   # TODO: https://xkcd.com/936/
 
   # An image asset can refer to one or more resolution-specific "variants", see
