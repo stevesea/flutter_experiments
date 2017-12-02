@@ -2,9 +2,7 @@ name: advsmith2
 description: A new Flutter project.
 
 dependencies:
-  dart_dice_parser: ^0.0.6
-  quiver: ^0.26.0
-  petitparser: ^1.6.1
+  dart_collection_sampler: ">=0.3.0"
   flutter:
     sdk: flutter
 
@@ -12,10 +10,6 @@ dev_dependencies:
   mockito: 2.2.0
   flutter_test:
     sdk: flutter
-
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
@@ -41,14 +35,11 @@ flutter:
   # http://world.std.com/~reinhold/diceware.html
   - assets/diceware/diceware8k.txt
   - assets/diceware/beale.wordlist.asc
-  - assets/diceware/diceware.worldlist.asc
+  - assets/diceware/diceware.wordlist.asc
   # EFF https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
   - assets/eff/eff_large_wordlist.txt
   - assets/eff/eff_short_wordlist_1.txt
   - assets/eff/eff_short_wordlist_2_0.txt
-  # TODO: look here for UI example: https://www.rempe.us/diceware/#eff
-  # TODO: https://github.com/xmikos/pwgen-passphrase (more lists!)
-  # TODO: https://xkcd.com/936/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.

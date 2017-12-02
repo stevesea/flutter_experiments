@@ -1,8 +1,13 @@
 # advsmith2
 
-A new Flutter project.
+TODO: look into https://github.com/fluidic/range_map can use instead of own?
 
-## Getting Started
+TODO: look here for UI example: https://www.rempe.us/diceware/#eff
 
-For help getting started with Flutter, view our online
-[documentation](http://flutter.io/).
+TODO: https://github.com/xmikos/pwgen-passphrase (more lists!)
+
+TODO: https://pub.dartlang.org/packages/passphrase_constructor
+
+TODO: https://github.com/ulif/diceware
+
+TODO: https://xkcd.com/936/
