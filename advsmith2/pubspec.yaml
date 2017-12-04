@@ -3,6 +3,8 @@ description: A new Flutter project.
 
 dependencies:
   dart_collection_sampler: ">=0.3.0"
+  dart_wordlists: ">=0.0.1"
+  resource: "^2.1.2"
   flutter:
     sdk: flutter
 
@@ -23,23 +25,6 @@ flutter:
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
-  assets:
-  - assets/bip39/chinese_simplified.txt
-  - assets/bip39/chinese_traditional.txt
-  - assets/bip39/english.txt
-  - assets/bip39/french.txt
-  - assets/bip39/italian.txt
-  - assets/bip39/japanese.txt
-  - assets/bip39/korean.txt
-  - assets/bip39/spanish.txt
-  # http://world.std.com/~reinhold/diceware.html
-  - assets/diceware/diceware8k.txt
-  - assets/diceware/beale.wordlist.asc
-  - assets/diceware/diceware.wordlist.asc
-  # EFF https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
-  - assets/eff/eff_large_wordlist.txt
-  - assets/eff/eff_short_wordlist_1.txt
-  - assets/eff/eff_short_wordlist_2_0.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.
